@@ -37,9 +37,9 @@ TaskHandle_t Task_HandleLampuBelakang;
 TaskHandle_t Task_HandleGasDapur;
 TaskHandle_t Task_HandleGasBelakang;
 
-char ssid[] = "DLink-62";
-char pass[] = "62010416";
-char token[] = "OKNHoOVfXSW9GFj93jA_E0_lx_S_3xUh";
+char ssid[] = "MYWIFI";
+char pass[] = "MYWIFIPASSWORD";
+char token[] = "MYTOKEN";
 
 
 int stateLD = 1, stateLKM = 1, stateLB = 1, stateGB = 0;
