@@ -1,5 +1,16 @@
 # Melati62 Smart Home
 
+
+
 <p align="center">
-    <img id="smokeScheme" src="Images/Smoke Detector Scheme.png" width="75%">
+    <img width="75%" id="smokeScheme" src="Images/Smoke Detector Scheme.png" >
 </p>
+
+
+## Introduction
+
+## Components
+
+## How It Works
+
+## Video
