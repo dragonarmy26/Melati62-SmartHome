@@ -14,6 +14,7 @@
 <p align="center">
     <img width="75%" src="Images/Main Hub Scheme.png">
 </p>
+
 ### Schematic for Arduino Smoke Detector Node
 <p align="center">
     <img width="75%" src="Images/Smoke Detector Scheme.png">
