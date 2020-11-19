@@ -1,5 +1,5 @@
 //                                              FINAL CODE
-// Last Edit: 21/09/2020 16:15
+// Last Edit: 19/11/2020 13:11
 //----------------------------------------------------------------------------------------------------------
 
 
@@ -13,7 +13,6 @@ const byte addressPipe = 'T';
 int msg[1];
 
 void setup() {
-  // put your setup code here, to run once:
   pinMode(2, INPUT_PULLUP); //BUTTON
   pinMode(4, OUTPUT); //BUZZER
   pinMode(5, OUTPUT); //LED
