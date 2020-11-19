@@ -2,9 +2,6 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/dragonarmy26/Melati62-SmartHome?style=for-the-badge)
 
 
-
-
-
 ## Introduction
 
 ## Components
@@ -19,6 +16,7 @@
 - Diode Rectifier
 - Passive Buzzer
 - Pushbutton
+- DC Barrel Jack Adapter Female
 - LED
 - Resistior 220Ω
 - Cable/Jumper
