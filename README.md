@@ -11,10 +11,12 @@
 
 ## Wiring and Assembling
 ### Schematic for ESP32 Main Hub
-
+<p align="center">
+    <img width="75%" src="Images/Main Hub Scheme.png">
+</p>
 ### Schematic for Arduino Smoke Detector Node
 <p align="center">
-    <img width="75%" id="smokeScheme" src="Images/Smoke Detector Scheme.png" >
+    <img width="75%" src="Images/Smoke Detector Scheme.png">
 </p>
 
 ## How It Works
