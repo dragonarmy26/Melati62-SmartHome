@@ -8,6 +8,20 @@
 ## Introduction
 
 ## Components
+- ESP32-WROOM-32
+- Arduino Nano R3
+- NRF24L01+ WIRELESS TRANSCEIVER
+- Relay 5VDC 4 Channel
+- Relay 5VDC 1 Channel
+- Solenoid Valve
+- MQ-6 Gas Sensor(LPG and Butane)
+- Water Level Float Switch
+- Diode Rectifier
+- Passive Buzzer
+- Pushbutton
+- LED
+- Resistior 220Ω
+- Cable/Jumper
 
 ## Wiring and Assembling
 ### Schematic for ESP32 Main Hub
