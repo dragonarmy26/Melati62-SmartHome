@@ -4,6 +4,7 @@
 
 ## Introduction
 
+
 ## Components
 - ESP32-WROOM-32
 - Arduino Nano R3
@@ -33,5 +34,3 @@
 </p>
 
 ## How It Works
-
-## Video
