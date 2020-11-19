@@ -1,5 +1,5 @@
 //                                              FINAL CODE
-// Last Edit: 26/10/2020 15:27
+// Last Edit: 19/11/2020 13:07
 //----------------------------------------------------------------------------------------------------------
 
 #include <ETH.h>
@@ -26,7 +26,6 @@ void Task_LampuDapur (void *param);
 void Task_LampuKamarMandi (void *param);
 void Task_LampuBelakang (void *param);
 void Task_GasDapur (void *param);
-void Task_GasBelakang (void *param);
 
 //Create Task Handler
 TaskHandle_t Task_HandleKeran1;
@@ -35,14 +34,13 @@ TaskHandle_t Task_HandleLampuDapur;
 TaskHandle_t Task_HandleLampuKamarMandi;
 TaskHandle_t Task_HandleLampuBelakang;
 TaskHandle_t Task_HandleGasDapur;
-TaskHandle_t Task_HandleGasBelakang;
 
 char ssid[] = "MYWIFI";
 char pass[] = "MYWIFIPASSWORD";
 char token[] = "MYTOKEN";
 
 
-int stateLD = 1, stateLKM = 1, stateLB = 1, stateGB = 0;
+int stateLD = 1, stateLKM = 1, stateLB = 1;
 RF24 radio(15, 2);
 const byte addressPipe = 'T';
 int msg[1];
@@ -68,12 +66,6 @@ void setup() {
   //Float Switch
   pinMode(22, INPUT_PULLUP); //Kamar Mandi
   pinMode(32, INPUT_PULLUP); //Belakang
-
-  //Gas Detector
-  pinMode(33, INPUT); //MQ-6
-  pinMode(27, OUTPUT); //Buzzer
-  pinMode(14, INPUT_PULLUP); //Button
-  pinMode(12, OUTPUT); //LED
   
   //Create Task
   xTaskCreate(Task_Keran1, "TaskKeran1", 1000, NULL, 1, &Task_HandleKeran1);
@@ -96,10 +88,6 @@ void setup() {
 
 void loop() {
   Blynk.run();
-    /*if(stateGB == 1)
-    {
-      Bot62.sendMessage(1205576815, "GAS BELAKANG BOCOR!!!");
-    }*/
 }
 
 void Task_Keran1(void *param)
@@ -217,19 +205,6 @@ void Task_GasDapur(void *param)
   }
 }
 
-void Task_GasBelakang(void *param)
-{
-  (void) param;
-  for(;;)
-  {
-    radio.read(msg, sizeof(msg[1]));
-    if(msg[0] == 1)
-    {
-      Blynk.notify("GAS BELAKANG BOCOR!!!");
-    }
-  }
-}
-
 BLYNK_WRITE(V0) //Lampu Dapur
 {
   if(param.asInt() == 1 && stateLD == 0)
@@ -271,37 +246,3 @@ BLYNK_WRITE(V2) //Lampu Belakang
     digitalWrite(16, HIGH);
   }
 }
-
-/*void Task_Gas(void *param)
-{
-    (void) param;
-    for(;;)
-    {
-        if(digitalRead(14) == HIGH)
-        {
-            int gaslevel = analogRead(33);
-            //Serial.println(gaslevel);
-            if(gaslevel>150)
-            {
-              stateGB = 1;
-                tone(27, 1000, 100, 0);
-                digitalWrite(12, HIGH);
-                vTaskDelay(100/portTICK_PERIOD_MS);
-                noTone(27, 0);
-                digitalWrite(12, LOW);
-                vTaskDelay(100/portTICK_PERIOD_MS);
-            }
-            else
-            {
-              stateGB = 0;
-            }
-            vTaskDelay(60000/portTICK_PERIOD_MS);
-        }
-        else if(digitalRead(14) == LOW)
-        {
-            digitalWrite(12, HIGH);
-            vTaskDelay(10000/portTICK_PERIOD_MS);
-            digitalWrite(12, LOW);
-        }
-    }
-}*/
