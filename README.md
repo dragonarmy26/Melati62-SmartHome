@@ -31,5 +31,3 @@
 <p align="center">
     <img width="75%" src="Images/Smoke Detector Scheme.png">
 </p>
-
-## How It Works
