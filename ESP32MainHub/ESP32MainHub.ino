@@ -2,17 +2,7 @@
 // Last Edit: 19/11/2020 13:07
 //----------------------------------------------------------------------------------------------------------
 
-#include <ETH.h>
 #include <WiFi.h>
-#include <WiFiAP.h>
-#include <WiFiClient.h>
-#include <WiFiGeneric.h>
-#include <WiFiMulti.h>
-#include <WiFiScan.h>
-#include <WiFiServer.h>
-#include <WiFiSTA.h>
-#include <WiFiType.h>
-#include <WiFiUdp.h>
 #include <BlynkSimpleEsp32.h>
 #include <SPI.h>
 #include <RF24.h>
@@ -27,13 +17,6 @@ void Task_LampuKamarMandi (void *param);
 void Task_LampuBelakang (void *param);
 void Task_GasDapur (void *param);
 
-//Create Task Handler
-TaskHandle_t Task_HandleKeran1;
-TaskHandle_t Task_HandleKeran2;
-TaskHandle_t Task_HandleLampuDapur;
-TaskHandle_t Task_HandleLampuKamarMandi;
-TaskHandle_t Task_HandleLampuBelakang;
-TaskHandle_t Task_HandleGasDapur;
 
 char ssid[] = "MYWIFI";
 char pass[] = "MYWIFIPASSWORD";
@@ -68,12 +51,12 @@ void setup() {
   pinMode(32, INPUT_PULLUP); //Belakang
   
   //Create Task
-  xTaskCreate(Task_Keran1, "TaskKeran1", 1000, NULL, 1, &Task_HandleKeran1);
-  xTaskCreate(Task_Keran2, "TaskKeran2", 1000, NULL, 1, &Task_HandleKeran2);
-  xTaskCreate(Task_LampuDapur, "TaskLampuDapur", 1000, NULL, 1, &Task_HandleLampuDapur);
-  xTaskCreate(Task_LampuKamarMandi, "TaskLampuKamarMandi", 1000, NULL, 1, &Task_HandleLampuKamarMandi);
-  xTaskCreate(Task_LampuBelakang, "TaskLampuBelakang", 1000, NULL, 1, &Task_HandleLampuBelakang);
-  xTaskCreate(Task_GasDapur, "TaskGas", 1000, NULL, 1, &Task_HandleGasDapur);
+  xTaskCreate(Task_Keran1, "TaskKeran1", 1000, NULL, 1, NULL);
+  xTaskCreate(Task_Keran2, "TaskKeran2", 1000, NULL, 1, NULL);
+  xTaskCreate(Task_LampuDapur, "TaskLampuDapur", 1000, NULL, 1, NULL);
+  xTaskCreate(Task_LampuKamarMandi, "TaskLampuKamarMandi", 1000, NULL, 1, NULL);
+  xTaskCreate(Task_LampuBelakang, "TaskLampuBelakang", 1000, NULL, 1, NULL);
+  xTaskCreate(Task_GasDapur, "TaskGas", 1000, NULL, 1, NULL);
 
   Blynk.begin(token, ssid, pass);
   
