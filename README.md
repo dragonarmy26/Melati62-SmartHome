@@ -1,5 +1,4 @@
 # Melati62 Smart Home
-![GitHub repo size](https://img.shields.io/github/repo-size/dragonarmy26/Melati62-SmartHome?style=for-the-badge)
 
 
 ## Introduction
